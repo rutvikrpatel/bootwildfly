@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class HelloWildFlyController {
     @RequestMapping("hello")
     public String sayHello(){
-        return ("Hello, SpringBoot on Wildfly");
+        return ("Hello, SpringBoot on Wildfly...");
     }
     
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
