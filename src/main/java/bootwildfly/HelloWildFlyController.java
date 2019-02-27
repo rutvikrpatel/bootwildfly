@@ -1,7 +1,7 @@
 package bootwildfly;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,23 +35,17 @@ public class HelloWildFlyController {
 					dir.mkdirs();
 
 				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + name);
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
+				File serverFile = new File(dir.getAbsolutePath()+ File.separator + name);
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
-
-				logger.info("Server File Location="
-						+ serverFile.getAbsolutePath());
 
 				return "You successfully uploaded "+serverFile.getAbsolutePath()+" file=" + name;
 			} catch (Exception e) {
 				return "You failed to upload " + name + " => " + e.getMessage();
 			}
 		} else {
-			return "You failed to upload " + name
-					+ " because the file was empty.";
+			return "You failed to upload " + name+ " because the file was empty.";
 		}
 	}
     
